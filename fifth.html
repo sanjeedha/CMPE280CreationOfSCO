@@ -1,0 +1,180 @@
+<html>
+<head>
+<title> Fifth Question</title>
+<style>
+    
+.left {
+   
+    margin-left: 15px;
+    margin-right:20px;
+    margin-top:50px;
+    float: left;
+    width: 55%;
+    font-family: sans-serif;
+}
+
+.right { 
+    margin-left: 25%;
+    
+}
+
+    
+#wrapper
+{ 
+    width:1000px;
+    height:570px;
+    margin:auto;
+	margin-top:50px;
+	margin-left:100px;
+    border-style:solid ;
+    border-radius: 10px;
+    border-width:3px;
+    border-color: gray;
+    background-color:grey;
+    padding-top:15px;
+}
+    
+#inner1{ 
+    width:1000px;
+	margin-top:27px;
+	background-color: whitesmoke;
+    height:525px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+    
+#user{
+     padding-top:30px;
+     margin-top:30px;
+     font-family:sans-serif; 
+    }
+    
+#image{
+        margin-top: 90px;
+    }  
+
+
+
+    .submit{
+        width: 160px;
+        height: 45px;
+        border-radius:10px;
+        margin-left: 200px; 
+        margin-top: 50px;
+        font-family:sans-serif;
+        font-size: 13px;
+        background-color: white;
+    } 
+    .submit1{
+        width: 200px;
+        height: 45px;
+        border-radius:10px;
+        margin-left: 550px; 
+        margin-top: -60px;
+        margin-bottom: 300px;
+        font-family:sans-serif;
+        font-size: 13px;
+        background-color: white;
+    } 
+    
+    #form{
+        margin-top:150px;
+    }
+    
+    #equate{
+        margin-left: 10px;
+        margin-right: 50px;
+    }
+    #equate1{
+        margin-left: 10px;
+        margin-right: 100px;
+    }
+    #equate3{
+        margin-left: 10px;
+        margin-right: 106px;
+    }
+    #frame{
+        margin-top:50px;
+    }
+    
+</style>
+    <script>
+    function getOptionsValue() {
+        qs = document.location.search;
+        qs = qs.split('+').join(' ');
+
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+
+        return params.options;
+    }
+    function getHidden()
+    {
+        var hidden = document.getElementById("options");
+        var hiddenVal = hidden.value;
+        var options = getOptionsValue();
+        hiddenVal = hiddenVal + options;
+        hidden.value = hiddenVal;
+    }
+    function setHidden() 
+    {
+        getHidden();
+        var hidden = document.getElementById("options");
+        var hiddenVal = hidden.value;
+        var option = document.querySelector('input[name = "question4"]:checked').value;
+        hiddenVal = hiddenVal + ";q4=" + option;
+        hidden.value = hiddenVal;
+    }
+</script> 
+</head>
+<body>
+    <header>
+  <h3><b>Audio & Video SCO</b> </h3> 
+</header>
+  
+<div id="wrapper">
+<center><span id="user">Question 4</span></center>
+    <div id = "inner1">
+    <div class="left">
+    <p>Watch the video and answer the following question. What is the source as mentioned in the video?</p>
+        <form id ="form" action="sixth.html" method="get" onsubmit="setHidden();">
+            <input id="11" type = "radio" name = "question4" value="1"><span id ="equate1">NASA.Gov</span>
+            <input id="22" type = "radio" name = "question4" value="2"><span id ="equate">Data.Gov</span><br><br><br><br>
+            <input id="33" type = "radio" name = "question4" value="3"><span id ="equate3">Facebook</span>
+            <input id="44" type = "radio" name = "question4" value="4"><span id ="equate">XYZ.net</span>
+             <input type="hidden" id="options" name="options" value="">
+<input class= "submit" type = "submit" value = "Submit & Next Question"/>     
+        </form>
+        <div><button onclick="clickme()" class = "submit1">Cancel & Clear Selection</button></div>
+        <script>
+            function clickme()
+            {  
+            document.getElementById("11").checked = false;
+            document.getElementById("22").checked = false;
+            document.getElementById("33").checked = false;
+            document.getElementById("44").checked = false;    
+           
+            }
+        </script>
+        
+</div>
+<div class="right">
+    <video id="frame" poster="nasa.jpg" width="400" height="300" controls="true" preload="auto">
+         <source  src="mission.mp4" type="video/mp4"/>
+<!--        <source src="https://www.youtube.com/v/ih9jPaZct1w" type="video/ogg"/>-->
+        Your browser does not support the video tag.
+    </video>
+<!--    <iframe id="frame" title="Universe" width="400" height="300" src=""frameborder="0" allowfullscreen></iframe>-->
+</div>          
+    </div>
+</div>
+<footer>
+  <p>Posted by: SCO creators</p>
+</footer>
+</body>
+</html>

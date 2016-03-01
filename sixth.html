@@ -1,0 +1,167 @@
+<html>
+<head>
+<title> Survey</title>
+<style>
+    
+    
+#wrapper
+{ 
+    width:1000px;
+    height:600px;
+    margin:auto;
+	margin-top:50px;
+	margin-left:100px;
+    border-style:solid ;
+    border-radius: 10px;
+    border-width:3px;
+    border-color: gray;
+    background-color:grey;
+    padding-top:15px;
+}
+    
+#inner1{ 
+    width:1000px;
+	margin-top:27px;
+	background-color: whitesmoke;
+    height:555px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+    
+#user{
+     padding-top:30px;
+     margin-top:30px;
+     font-family:sans-serif; 
+    }
+    
+#image{
+        margin-top: 90px;
+    }  
+
+
+  .submit{
+        width: 160px;
+        height: 45px;
+        border-radius:10px;
+        margin-left: 150px; 
+        margin-top: 140px;
+        margin-bottom: 300px;
+        font-family:sans-serif;
+        font-size: 13px;
+        background-color: white;
+    } 
+    
+    #form{
+        margin-top:30px;
+        margin-left: 90px;
+    }
+    
+    #equate{
+        margin-left: 10px;
+        margin-right: 90px;
+    }
+    #equate1{
+        margin-left: 10px;
+        margin-right: 180px;
+    }
+    #para{
+        margin-left: 50px;
+        font-family: sans-serif;
+        padding-top: 30px;
+        font-size: 1em;
+    }
+    .large{
+        font-size:3.5em;
+       
+    }
+    #equate3{
+        margin-left: 10px;
+        margin-right: 93px;
+    }
+    .dropdown{
+        margin-left: 60px;
+    }
+    
+    
+</style>
+    <script>
+    function getOptionsValue() {
+        qs = document.location.search;
+        qs = qs.split('+').join(' ');
+
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+
+        return params.options;
+    }
+    function getHidden()
+    {
+        var hidden = document.getElementById("options");
+        var hiddenVal = hidden.value;
+        var options = getOptionsValue();
+        hiddenVal = hiddenVal + options;
+        hidden.value = hiddenVal;
+    }
+    function setHidden() 
+    {
+        getHidden();
+        var hidden = document.getElementById("options");
+        var hiddenVal = hidden.value;
+        hidden.value = hiddenVal;
+    }
+</script> 
+</head>
+<body>
+ <h3><b><u>Survey SCO</u></b> </h3>  
+<div id="wrapper">
+<center><span id="user">Survey</span></center>
+    <div id = "inner1">
+    
+    <p id="para">How did you like the center?</p>
+        <form id ="form">
+            <label>Comments:</label>
+            
+            <textarea  rows="7" cols="100" maxlength="130"></textarea> 
+        </form>
+    <p id="para">Select Test Area Location</p> 
+        
+        <form action="finished.html" method="get" onsubmit="setHidden();">
+        <label class="dropdown">City:</label>
+  <input list="area" name="area">
+  <datalist id="area">
+    <option value="San Jose">
+    <option value="Sunnyvale">
+    <option value="Mountain View">
+    <option value="Palo Alto">
+    <option value="Santa Clara">
+  </datalist>
+  <label class="dropdown">Room Number:</label>
+        
+  <input list="room" name="room">
+  <datalist id="room">
+    <option value="Room 221">
+    <option value="Room 332">
+    <option value="Room 212">
+    <option value="Room 200">
+    <option value="Room 121">
+  </datalist>
+<input type="hidden" id="options" name="options" value="">
+<div>
+        <input class= "submit" type = "submit" value = "Submit & Get Score"/> <input class = "submit" type = "submit" value = "Skip & Get Score"/>
+</div>
+ 
+</form>
+        
+        
+    </div>
+</div>
+<footer>
+  <p>Posted by: SCO creators</p>
+</footer>
+</body>
+</html>

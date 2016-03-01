@@ -1,0 +1,96 @@
+<html>
+<head>
+<title> User Login</title>
+<style>
+#wrapper
+{ 
+    width:400px;
+    height:250px;
+    margin:auto;
+	margin-top:50px;
+	margin-left:400px;
+    border-style:solid ;
+    border-radius: 10px;
+    border-width:3px;
+    border-color: gray;
+    background-color:grey;
+    padding-top:15px;
+}
+#inner1
+{ 
+    width:400px;
+	margin-top:27px;
+	background-color: whitesmoke;
+    height:205px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+    
+    label{
+        margin-top: 100px;
+        margin-left: 70px;
+        font-family:sans-serif;
+    }
+    input{
+        margin-top: 30px;
+        width:200px;
+        height:30px;
+        
+    }
+    #submit{
+        width: 80px;
+        height: 30px;
+        border-radius:10px;
+        margin-left: 120px;  
+        margin-bottom: 300px;
+        font-family:sans-serif;
+       
+    }
+    #user{
+        padding-top:30px;
+        margin-top:30px;
+        font-family:sans-serif; 
+    }
+    
+    #anchor{
+        margin-left: 20px;
+    }
+   
+</style>
+<script>
+    function formdata() 
+    {
+    var username= document.getElementById("username").value;
+            var password= document.getElementById("pass").value;
+
+             if(username=="sanjeedha91@gmail.com" && password=="sanju7")
+            {
+               return true;
+            }
+        alert('Username or Password INVALID');
+       return false;
+
+    }
+</script>      
+</head>
+<body>
+    <header>
+        <b>Login-page</b>
+    </header>
+    <div id="wrapper">
+        <center><span id="user">User Login</span></center>
+        <div id = "inner1">
+            <form action="second.html" onsubmit="return(formdata());" method="post">
+                <label>Username:</label>
+                <input id="username" name="username" type="text" />
+                <label>Password: </label>
+                <input id="pass" name="password" type="password"/><br>
+
+                <a id="anchor" href="error.html">Create Account/ Forgot?</a>
+                <input id ="submit" type = "submit" value="login" >
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

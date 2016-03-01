@@ -1,0 +1,260 @@
+<html>
+<head>
+<title> Summary Page</title>
+<style>
+    
+    
+#wrapper
+{ 
+    width:1000px;
+    height:950px;
+    margin:auto;
+	margin-top:50px;
+	margin-left:100px;
+    border-style:solid ;
+    border-radius: 10px;
+    border-width:3px;
+    border-color: gray;
+    background-color:grey;
+    padding-top:15px;
+}
+    
+#inner1{ 
+    width:1000px;
+	margin-top:27px;
+	background-color: whitesmoke;
+    height:905px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;  
+   
+}
+    
+#user{
+     padding-top:30px;
+     margin-top:30px;
+     font-family:sans-serif; 
+   
+    }
+    
+#image{
+        margin-top: 90px;
+    }  
+
+
+  .submit{
+        width: 180px;
+        height: 45px;
+        border-radius:10px;
+        margin-left: 420px; 
+        margin-top: 50px;
+        margin-bottom: 300px;
+        font-family:sans-serif;
+        font-size: 13px;
+        background-color: white;
+    } 
+    
+    #form{
+        margin-top:30px;
+        margin-left: 90px;
+    }
+    
+    #equate{
+        margin-left: 10px;
+        margin-right: 90px;
+    }
+    #equate1{
+        margin-left: 10px;
+        margin-right: 180px;
+    }
+    #para{
+        margin-left: 50px;
+        font-family: sans-serif;
+        padding-top: 30px;
+        font-size: 1em;
+    }
+    .large{
+        font-size:3.5em;
+       
+    }
+    #equate3{
+        margin-left: 10px;
+        margin-right: 93px;
+    }
+    .dropdown{
+        margin-left: 60px;
+    }
+  
+    #inner2{
+       margin-left: 20px;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-bottom: 0px;
+        border: solid;
+    }
+    #thank{
+        
+        font-family:sans-serif;
+        font-size: 2em;
+    }
+    
+    .detail{
+         margin-left: 20px;
+    }
+</style>
+<script>
+    function calculateScore() {
+        qs = document.location.search;
+        qs = qs.split('+').join(' ');
+
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+
+        var options = params.options;
+        var section1 = {
+           'q1': '1',
+           'q2': '2'
+          
+        }  
+        var section2 = {
+           'q3': '3',
+           'q3sub':'S22'
+        }
+        var section3 = {
+           'q4': '2'
+        }
+        var selectedOptions = {};
+        console.log(options);
+        var scores = options.split(";");
+        console.log(scores);
+        for(i=0; i < scores.length; i++){
+            var temp = scores[i];
+            if(temp.length > 0){
+                var score = temp.split("=");
+                var question = score[0];
+                var option = score[1];
+                selectedOptions[question] = option;
+            }      
+        }
+        console.log(selectedOptions);
+        var quantScore = 0;
+        var quantQuestionAns = 0;
+        var quantQuestionCor = 0;
+        
+        
+        var readScore = 0;
+        var readQuestionAns = 0;
+        var readQuestionCor = 0;
+        
+        var videoScore = 0;
+        var videoQuestionAns = 0;
+        var videoQuestionCor = 0;
+
+        for(k in section1) {
+            if(k in selectedOptions){
+                quantQuestionAns += 1;
+                if(section1[k] == selectedOptions[k]){
+                    quantScore += 1;
+                    quantQuestionCor += 1;
+                }
+                else{
+                    quantScore -= 1;
+                }        
+            }
+        }
+        for(k in section2) {
+            if(k in selectedOptions){
+                readQuestionAns += 1;
+                if(section2[k] == selectedOptions[k]){
+                    readScore += 1;
+                    readQuestionCor += 1;
+                }
+                else{
+                    readScore -= 1;
+                }        
+            }
+        }
+        for(k in section3) {
+            if(k in selectedOptions){
+                videoQuestionAns += 1;
+                if(section3[k] == selectedOptions[k]){
+                    videoScore += 1;
+                    videoQuestionCor += 1;
+                }
+                else{
+                    videoScore -= 1;
+                }        
+            }
+        }
+
+        console.log(quantScore);
+        console.log(readQuestionAns);
+
+        document.getElementById('quantquestions').innerHTML = quantQuestionAns;
+        document.getElementById('quantanswered').innerHTML = quantQuestionCor; 
+        document.getElementById('quantcorrect').innerHTML = quantScore;  
+        
+        document.getElementById('readquestions').innerHTML = readQuestionAns;
+        document.getElementById('readanswered').innerHTML = readQuestionCor;   
+        document.getElementById('readcorrect').innerHTML = readScore;  
+        
+        document.getElementById('audioquestions').innerHTML = videoQuestionAns;
+        document.getElementById('audioanswered').innerHTML = videoQuestionCor;   
+        document.getElementById('audiocorrect').innerHTML = videoScore;  
+    }
+        
+</script>
+
+</head>
+<body onload="calculateScore();">
+    
+    <header><h3><b><u>Summary Page</u></b> </h3>  </header>
+ 
+<div id="wrapper">
+<center><span id="user">Score Card</span></center>
+    <div id = "inner1">
+    <div id = "inner2">
+        <details class="detail"><summary><b>Quantitative Section</b></summary>
+
+  <p>Number of Questions Answered: <span id="quantquestions"></span></p><br>
+    <p>Number of Correct Answers: <span id="quantanswered"></span></p><br>
+    <p>Score: <span id="quantcorrect"></span></p>
+    
+</details>
+
+  <details class="detail"><summary><b>Reading Section</b></summary>
+
+  <p>Number of Questions Answered: <span id="readquestions"></span></p><br>
+    <p>Number of Correct Answers: <span id="readanswered"></span></p><br>
+    <p>Score: <span id="readcorrect"></span></p>
+    
+</details>
+<details class="detail"><summary><b>Audio-Video Section</b></summary>
+
+  <p>Number of Questions Answered: <span id="audioquestions"></span></p><br>
+    <p>Number of Correct Answers: <span id="audioanswered"></span></p><br>
+    <p>Score: <span id="audiocorrect"></span></p>
+    
+</details>
+        
+        </div>
+    <div id="thank">
+        <center>Thank You!!</center>
+        </div>
+        <div>
+        <input class= "submit" type = "submit" value = "Finish"/> 
+</div>
+        
+    </div>
+</div>
+   
+    
+<footer>
+  <p>Posted by: SCO creators</p>
+</footer>
+</body>
+</html>

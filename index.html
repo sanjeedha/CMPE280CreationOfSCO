@@ -1,0 +1,132 @@
+<html>
+    <head>
+    <title> User Login</title>
+    <style>
+        #wrapper1
+        { 
+            width:400px;
+            height:250px;
+            margin:auto;
+            margin-top:50px;
+            margin-left:400px;
+            border-style:solid ;
+            border-radius: 10px;
+            border-width:3px;
+            border-color: gray;
+            background-color:grey;
+            padding-top:15px;
+        }
+        #inner1
+        { 
+            width:400px;
+            margin-top:27px;
+            background-color: whitesmoke;
+            height:205px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;  
+        }
+
+        label{
+            margin-top: 100px;
+            margin-left: 70px;
+            font-family:sans-serif;
+        }
+        input{
+            margin-top: 30px;
+            width:200px;
+            height:30px;
+
+        }
+        #submit{
+            width: 80px;
+            height: 30px;
+            border-radius:10px;
+            margin-left: 120px;  
+            margin-bottom: 300px;
+            font-family:sans-serif;
+
+        }
+        #user{
+            padding-top:30px;
+            margin-top:30px;
+            font-family:sans-serif; 
+        }
+
+        #anchor{
+            margin-left: 20px;
+        }
+    </style>
+        
+    <script>
+        function formdata() 
+        {
+            var username= document.getElementById("username").value;
+            var password= document.getElementById("pass").value;
+
+            if(username=="sanjeedha91@gmail.com" && password=="sanju7")
+            {
+               return true;
+            }
+            alert('Username or Password INVALID');
+            
+            return false;
+
+        }
+    </script>    
+
+    </head>
+    <body>
+        <div data-role="page" id="p1">
+            <header>
+                <b>Login-page</b>
+            </header>
+            <div id="wrapper1" data-role="content">
+                <center>
+                    <span id="user">User Login</span>
+                </center>
+
+                <div id = "inner1">
+                    <form action="second.html" onsubmit="return(formdata());">
+                        <label>Username:</label>
+                        <input id="username" name="username" type="text" />
+                        <label>Password: </label>
+                        <input id="pass" name="password" type="password"/><br>
+                        <a id="anchor" href="error.html">Create Account/ Forgot?</a>
+                        <input id ="submit" type = "submit" value="login" >
+                    </form>  
+                </div>
+            </div>
+        </div>
+        
+        <div data-role="page" id="p2">
+            <header><h3><b>Page: Maths Question</b> </h3> </header>
+
+            <div id="wrapper2" data-role="content">
+                <center>
+                    <span id="user">Question 1</span>
+                </center>
+                <div id = "inner1">
+                    <div class="left">
+                        <p>Given points (x1,y1) and (x2,y2) select the formula to find the equation of a given line</p>
+                        <form id ="form">
+                            <input type = "radio" name = "question1" ><span id ="equate1"><i>y = mx + b</i></span>
+                            <input type = "radio" name = "question1" ><span id ="equate"><i>(x - h)<sup>&nbsp;2</sup> + (y - k)<sup>&nbsp;2</sup></i></span><br><br>
+                            <input type = "radio" name = "question1" ><span id ="equate"><i>(y - y<sub>1</sub>) = m(x - x<sub>1</sub>)</i></span>
+                            <input type = "radio" name = "question1" ><span id ="equate"><i>y - y<sub>2</sub> = <table class="frac"><tbody><tr><td><b>y<sub>2</sub> - y<sub>1</sub><br>--------<br>x<sub>2</sub> - x<sub>1</sub></b></td></tr></tbody></table>(x - x<sub>2</sub>)</i></span>
+
+                        </form>
+
+                        <input class= "submit" type = "submit" value = "Submit & Next Question"/> <input class = "submit" type = "submit" value = "Cancel & Clear Selection"/>
+                    </div>
+                    <div class="right">
+                        <img id= "image" src = "graph.png" width=50%/>
+                    </div>          
+                </div>
+            </div>
+            <footer>
+              <p>Posted by: SCO creators</p>
+            </footer>
+        
+        </div>
+    </body>
+</html>

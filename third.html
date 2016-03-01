@@ -1,0 +1,178 @@
+<html>
+<head>
+<title> Second Question</title>
+<style>
+    
+    
+#wrapper
+{ 
+    width:1000px;
+    height:500px;
+    margin:auto;
+	margin-top:50px;
+	margin-left:100px;
+    border-style:solid ;
+    border-radius: 10px;
+    border-width:3px;
+    border-color: gray;
+    background-color:grey;
+    padding-top:15px;
+}
+    
+#inner1{ 
+    width:1000px;
+	margin-top:27px;
+	background-color: whitesmoke;
+    height:455px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+    
+#user{
+     padding-top:30px;
+     margin-top:30px;
+     font-family:sans-serif; 
+    }
+    
+#image{
+        margin-top: 90px;
+    }  
+.frac {                          
+	text-align:   center;
+	line-height:  0.9em;    
+	bottom:      -1.0em;
+    border-collapse: collapse;
+	margin:          10px 0.1em 0 0.05em;
+	font-size:       100%;
+	position:        relative;
+	bottom:          -1.3em;
+	line-height:      1em;
+	display:         inline;
+	text-indent:     0em;   
+}
+
+  .submit{
+        width: 160px;
+        height: 45px;
+        border-radius:10px;
+        margin-left: 200px; 
+        margin-top: 50px;
+        font-family:sans-serif;
+        font-size: 13px;
+        background-color: white;
+    } 
+    .submit1{
+        width: 200px;
+        height: 45px;
+        border-radius:10px;
+        margin-left: 550px; 
+        margin-top: -60px;
+        margin-bottom: 300px;
+        font-family:sans-serif;
+        font-size: 13px;
+        background-color: white;
+    } 
+    
+    
+    #form{
+        margin-top:100px;
+        margin-left: 90px;
+    }
+    
+    #equate{
+        margin-left: 10px;
+        margin-right: 90px;
+    }
+    #equate1{
+        margin-left: 10px;
+        margin-right: 180px;
+    }
+    #para{
+        margin-left: 30px;
+        font-family: sans-serif;
+        padding-top: 30px;
+    }
+    .large{
+        font-size:3.5em;
+       
+    }
+    #equate3{
+        
+        margin-left: 10px;
+        margin-right: 93px;
+    }
+  
+    
+</style>
+<script>
+    function getOptionsValue() {
+        qs = document.location.search;
+        qs = qs.split('+').join(' ');
+
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+
+        return params.options;
+    }
+    function getHidden()
+    {
+        var hidden = document.getElementById("options");
+        var hiddenVal = hidden.value;
+        var options = getOptionsValue();
+        hiddenVal = hiddenVal + options;
+        hidden.value = hiddenVal;
+    }
+    function setHidden() 
+    {
+        getHidden();
+        var hidden = document.getElementById("options");
+        var hiddenVal = hidden.value;
+        var option = document.querySelector('input[name = "question2"]:checked').value;
+        hiddenVal = hiddenVal + ";q2=" + option;
+        hidden.value = hiddenVal;
+    }
+</script> 
+</head>
+<body>
+    <header><h3><b><u>Cosine Page</u></b> </h3>  </header>
+ 
+<div id="wrapper">
+<center><span id="user">Question 2</span></center>
+    <div id = "inner1">
+    
+    <p id="para">select the cosine theorem formula</p>
+        <form id ="form" action="fourth.html" method="get" onsubmit="setHidden();">
+            <input id="11" type = "radio" name = "question2"  value="1"><span id ="equate1"><i>cos(&#945 &#177 &#946) = cos&#945 cos&#946 &#177 sin&#945 sin &#946</i></span>
+            <input id="22" type = "radio" name = "question2"  value="2"><span id ="equate"><i>sin(&#945 &#177 &#946) = sin&#945 cos&#946 &#177 cos&#945 sin &#946</i></span><br><br>
+            <input id="33" type = "radio" name = "question2"  value="3"><span id ="equate3"><i>sin&#945 + sin&#946 = 2sin&nbsp<b class="large">(</b><table class="frac"><tbody><tr><td><b>&#945 + &#946<br>--------<br>2</b></td></tr></tbody></table><b class="large">)</b>cos&nbsp<b class="large">(</b><table class="frac"><tbody><tr><td><b>&#945 - &#946<br>--------<br>2</b></td></tr></tbody></table><b class="large">)</b></i></span>
+            <input id="44" type = "radio" name = "question2"  value="4"><span id ="equate"><i>sin&#945 - sin&#946 = 2cos&nbsp<b class="large">(</b><table class="frac"><tbody><tr><td><b>&#945 + &#946<br>--------<br>2</b></td></tr></tbody></table><b class="large">)</b>sin&nbsp<b class="large">(</b><table class="frac"><tbody><tr><td><b>&#945 - &#946<br>--------<br>2</b></td></tr></tbody></table><b class="large">)</b></i></span>
+
+            <input type="hidden" id="options" name="options" value=""> 
+            <input class= "submit" type = "submit" value = "Submit & Next Question"/>
+        </form>    
+       <button onclick="clickme()" class = "submit1">Cancel & Clear Selection</button>
+       
+        <script>
+            function clickme()
+            {  
+            document.getElementById("11").checked = false;
+            document.getElementById("22").checked = false;
+            document.getElementById("33").checked = false;
+            document.getElementById("44").checked = false;    
+           
+            }
+        </script>
+             
+      
+    </div>
+</div>
+<footer>
+  <p>Posted by: SCO creators</p>
+</footer>
+</body>
+</html>
